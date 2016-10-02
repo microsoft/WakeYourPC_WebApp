@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Wake Your PC - @ViewBag.Title</title>
+    <meta charset="utf-8" />
+
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/lib/bootswatch/cosmo/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+
+    <div id="wrapper">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav navbar-left">
+                    <li>
+                        <a class="navbar-brand" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Download">Download Agent</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="main" class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="footer">
+
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+</body>
+</html>

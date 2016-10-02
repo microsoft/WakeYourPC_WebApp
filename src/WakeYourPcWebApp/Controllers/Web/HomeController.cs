@@ -13,5 +13,15 @@ namespace WakeYourPcWebApp.Controllers.Web
         {
             return View();
         }
+
+        public IActionResult Download()
+        {
+            return View();
+        }
+
+        public IActionResult HowItWorks()
+        {
+            return View();
+        }
     }
 }

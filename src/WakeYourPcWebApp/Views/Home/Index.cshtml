@@ -1,11 +1,20 @@
 ﻿@{
     ViewBag.Title = "Home";
 }
-<hmtl>
-    <head>
-        <title>Wake Your PC - @ViewBag.Title</title>
-    </head>
-    <body>
-    Hello World
-    </body>
-</hmtl>
+
+<div class="jumbotron">
+    <div class="container-fluid">
+        <div class="row">
+            <h1>Wake Your PC at Will</h1>
+            <p>
+                You can wake up your PC from sleep remotely using a mobile app or from this web site
+            </p>
+        </div>
+        <div class="row">
+            <a class="btn btn-lg btn-success col-md-2" 
+               asp-controller="Home" asp-action="Download">Get it</a>
+            <a class="btn btn-lg btn-primary col-md-2 col-md-offset-1 col-xs-offset-0"
+               asp-controller="Home" asp-action="HowItWorks">How It Works</a>
+        </div>
+    </div>
+</div>
