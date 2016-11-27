@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="WakeYourPC" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="WebRole">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=wakeyourpc;AccountKey=qdX4XYK68U0HbE80DDg1YB0UYgS7iGgMHEkk+//VXd9zCo0A0xkUhUL1jJ5yBFhhgG153jRYlnoMeRgV7SHTIQ==" />
+      <Setting name="APPINSIGHTS_INSTRUMENTATIONKEY" value="a93e61bf-83b2-424e-a19c-cdaee9ff73ac" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

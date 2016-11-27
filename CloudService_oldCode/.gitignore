@@ -1,0 +1,15 @@
+# Common Visual studio ignore
+packages/
+obj/
+bin/
+.vs/
+
+# Cloud service ignore
+*.dll
+*.exe
+csx/
+
+
+
+
+
