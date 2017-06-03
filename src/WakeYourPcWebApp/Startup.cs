@@ -30,7 +30,8 @@ namespace WakeYourPcWebApp
 
             var builder = new ConfigurationBuilder()
                 .SetBasePath(_env.ContentRootPath)
-                .AddJsonFile("config.json")
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false)
                 .AddEnvironmentVariables();
 
             _config = builder.Build();
@@ -59,7 +60,7 @@ namespace WakeYourPcWebApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app,
             ILoggerFactory loggerFactory,
-            IHostingEnvironment env, 
+            IHostingEnvironment env,
             WakeupContextSeedData seeder,
             WakeupContext context)
         {
@@ -69,11 +70,15 @@ namespace WakeYourPcWebApp
                 config.CreateMap<UserViewModel, User>().ReverseMap();
             });
 
-
-            //if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
-                loggerFactory.AddDebug();
+                loggerFactory.AddDebug(LogLevel.Information);
+                loggerFactory.AddConsole(LogLevel.Information);
                 app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                loggerFactory.AddDebug(LogLevel.Error);
             }
 
             app.UseStaticFiles();
@@ -95,7 +100,6 @@ namespace WakeYourPcWebApp
             });
 
             context.Database.Migrate();
-
             seeder.EnsureSeedData().Wait();
 
         }
