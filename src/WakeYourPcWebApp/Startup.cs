@@ -13,6 +13,9 @@ using WakeYourPcWebApp.Models;
 using Newtonsoft.Json.Serialization;
 using WakeYourPcWebApp.Controllers.Api.v1;
 using WakeYourPcWebApp.ViewModels;
+using WakeYourPcWebApp.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore;
 
 namespace WakeYourPcWebApp
 {
@@ -44,19 +47,21 @@ namespace WakeYourPcWebApp
 
             services.AddTransient<WakeupContextSeedData>();
 
+            services.AddLogging();
+
             services.AddMvc().AddJsonOptions(config =>
             {
                 config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-
             });
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IHostingEnvironment env, 
+        public void Configure(IApplicationBuilder app,
             ILoggerFactory loggerFactory,
-            WakeupContextSeedData seeder)
+            IHostingEnvironment env, 
+            WakeupContextSeedData seeder,
+            WakeupContext context)
         {
             Mapper.Initialize(config =>
             {
@@ -64,10 +69,10 @@ namespace WakeYourPcWebApp
                 config.CreateMap<UserViewModel, User>().ReverseMap();
             });
 
-            loggerFactory.AddConsole();
 
-            if (env.IsDevelopment() || true)
+            //if (env.IsDevelopment())
             {
+                loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
             }
 
@@ -89,7 +94,9 @@ namespace WakeYourPcWebApp
 
             });
 
-            //seeder.EnsureSeedData().Wait();
+            context.Database.Migrate();
+
+            seeder.EnsureSeedData().Wait();
 
         }
     }

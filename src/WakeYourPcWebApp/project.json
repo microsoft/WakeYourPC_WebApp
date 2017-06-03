@@ -25,7 +25,8 @@
       "type": "build"
     },
     "Microsoft.EntityFrameworkCore.Design": "1.0.1",
-    "AutoMapper": "5.2.0"
+    "AutoMapper": "5.2.0",
+    "Microsoft.Extensions.Logging.Debug": "1.1.1"
   },
 
   "tools": {
@@ -73,7 +74,8 @@
       ]
     },
 
-    "scripts": {
-      "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-    }
+  "scripts": {
+    "prepublish": [ "npm install", "bower install" ],
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  }
   }

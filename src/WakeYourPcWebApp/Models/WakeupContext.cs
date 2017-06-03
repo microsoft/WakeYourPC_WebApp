@@ -25,7 +25,7 @@ namespace WakeYourPcWebApp.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer(_configuration["ConnectionStrings:Sql"]);
+            optionsBuilder.UseSqlServer(_configuration["Data:connectionStrings:DefaultConnection"]);
         }
     }
 }
