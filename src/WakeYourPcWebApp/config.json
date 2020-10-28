@@ -1,6 +1,0 @@
-{
-  "ConnectionStrings": {
-    "Sql": "Server=(localdb)\\MSSQLLocalDB;Database=WakeupDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
-  },
-  "Password": "Temp Password"
-}

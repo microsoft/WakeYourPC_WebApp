@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WakeYourPcWebApp", "src\WakeYourPcWebApp\WakeYourPcWebApp.csproj", "{69153DAD-655F-4E43-9B29-17FC3DFDB083}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69153DAD-655F-4E43-9B29-17FC3DFDB083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69153DAD-655F-4E43-9B29-17FC3DFDB083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69153DAD-655F-4E43-9B29-17FC3DFDB083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69153DAD-655F-4E43-9B29-17FC3DFDB083}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
